@@ -55,7 +55,8 @@ openssl genrsa -out ca.key 2048
 openssl req -x509 -new -nodes -key ca.key -sha256 -days 3650 -out ca.crt
 ```
 
-### Logstasg server (create server.key and server.crt).
+### Logstash server (create server.key and server.crt).
+Make sure to replace all XX values with real ones and use the same for the client.conf. The 'commonName' should reflect your FQDN.
 
 File server.conf
 ```
@@ -95,6 +96,7 @@ mv server.key server.key.pem && openssl pkcs8 -in server.key.pem -topk8 -nocrypt
 ```
 
 ### FileBeat shipper (create files client.key and client.crt).
+Make sure to replace all XX values with real ones and use the same as you did in the server.conf. The 'commonName' should reflect your FQDN.
 
 File client.conf.
 ```
